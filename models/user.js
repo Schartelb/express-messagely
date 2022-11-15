@@ -82,6 +82,7 @@ class User {
       u.username, u.first_name, u.last_name, u.phone FROM messages AS m
        LEFT JOIN users AS u ON m.to_username=u.username 
        WHERE m.from_username=$1`, [fromUsername])
+
     const { id, body, sent_at, read_at,
       first_name, last_name, phone, username} = results.rows[0]
     const to_user = { username, first_name, last_name, phone }

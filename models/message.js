@@ -79,6 +79,9 @@ class Message {
 
     return {
       id: m.id,
+      body: m.body,
+      sent_at: m.sent_at,
+      read_at: m.read_at,
       from_user: {
         username: m.from_username,
         first_name: m.from_first_name,
@@ -91,9 +94,6 @@ class Message {
         last_name: m.to_last_name,
         phone: m.to_phone,
       },
-      body: m.body,
-      sent_at: m.sent_at,
-      read_at: m.read_at,
     };
   }
 }
