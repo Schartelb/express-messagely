@@ -14,13 +14,14 @@ class User {
    */
   static async register({ username, password, first_name, last_name, phone }) {
     const timestamp = new Date().toUTCString()
+    // console.log({ username, password, first_name, last_name, phone })
     const hashPw = await bcrypt.hash(password, BCRYPT_WORK_FACTOR)
     const results = await db.query(`INSERT INTO users 
     (username,password,first_name,last_name, phone,join_at,last_login_at)
      VALUES ($1,$2,$3,$4,$5,$6,$7)
      RETURNING username,password,first_name,last_name, phone`,
       [username, hashPw, first_name, last_name, phone, timestamp, timestamp])
-    return results.rows[0];
+      return results.rows[0];
   }
 
   /** Authenticate: is this username/password valid? Returns boolean. */

@@ -74,6 +74,6 @@ describe("Auth Routes Test", function () {
   });
 });
 
-afterAll(async ()=> {
+afterAll(async () => {
   await db.end();
-} )
+})
